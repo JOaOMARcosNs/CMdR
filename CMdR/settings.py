@@ -25,7 +25,7 @@ SECRET_KEY = 'x36e_yjnuvxqsvtv^b(+y+yr)c4-+ql3264vq5a#s*^*ryp@pe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
+    'register.apps.RegisterConfig',
 ]
 
 MIDDLEWARE = [
