@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #E5E5E5;
+}
+
+header{
+    background-color: #20698D;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    padding:16px;
+}
+a{
+    text-decoration: none;
+}
+#logo{
+    padding:0.7rem;
+    color: #E5E5E5;
+    font-weight: bold;
+    font-size: 2rem;
+    display: inline;
+    
+}
+header img{
+    margin-top:9px;
+    margin-right: 50px;
+}
+.container{
+    width: min(80vw, 10000px);
+    margin:auto
+}
+.container h1{
+    padding-top: 7rem;
+    font-style: normal;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+    letter-spacing: -0.015em;
+
+    color: #143120;
+}
+.container h3{
+    padding-top: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.015em;
+
+    color: #47954F;
+} 
+
+footer{
+    margin-top: 305px;
+    text-align: center;
+    background-color: #20698D;
+    padding: 1.5rem;
+}
+
+footer p {
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    color: #E5E5E5;
+}
+
+footer img{
+    padding-top:0.5rem;
+}
+
+#container-da-imagem{
+    max-width: 100%;
+}
+.container img{
+    width: min(90vw, 1059px);
+    padding-left: -50px;
+    max-width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 667px){
+    .container img {
+        width:0;
+        height: 0;
+    }
+    footer {
+        margin-top: 10px;
+    }
+ 
+}
+
+@media only screen and (max-width: 1024px){
+    .container img {
+        width:0;
+        height: 0;
+    }
+    footer {
+        margin-top: 10px;
+    }
+}
+@media only screen and (max-width: 1366px){
+    h1{
+        text-align: center;
+    }
+    h3{
+        text-align: center;
+    }
+    footer {
+        margin-top: 917px;
+    }
+}
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3){ 
+    footer {
+        margin-top: 193.9px;
+    }
+}
