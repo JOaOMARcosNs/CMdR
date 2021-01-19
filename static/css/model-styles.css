@@ -62,31 +62,11 @@ header img{
     color: #47954F;
 } 
 
-footer{
-    /* margin-top: 305px; */
-    text-align: center;
-    background-color: #20698D;
-    padding: 1.02rem;
-    /* position:absolute;
-    bottom:0; 
-    width:100%;  */
-    margin-top: auto;
 
-}
-
-footer p {
-    width: 100%;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1rem;
-    color: #E5E5E5;
-}
-footer img {
-    margin-top:10px;
-}
 
 .content{
-    text-align: center; 
+    text-align: center;
+    
 }
 
 
@@ -125,5 +105,33 @@ footer img {
 }
 label{
     display: flex;
+    align-items: center;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 1024px){
+    .form  input{
+        width: 200px; 
+    }
+    .form select{
+        width:200px;
+    }
+    .form textarea {
+        width:200px;
+    }
+    .content{
+        margin-top: 100px; 
+    }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait) {
+    .form  input{
+        width: 400px; 
+    }
+    .form select{
+        width:400px;
+    }
+    .form textarea {
+        width:400px;
+    }
 }

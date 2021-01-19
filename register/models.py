@@ -60,6 +60,19 @@ STATE_CHOICES = (
 
 )
 
+BLOOD_TYPE_CHOICES = (
+        ('A +', 'A +'),
+        ('A -', 'A -'),
+        ('AB +', 'AB +'),
+        ('AB -', 'AB -'),
+        ('O +', 'O +'),
+        ('O -', 'O -'),
+    )
+
+GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+    )
 
 class Nationality(models.Model):
     city = models.CharField(max_length=35)
@@ -82,3 +95,29 @@ class About(models.Model):
 
     class Meta:
         db_table ='about'
+
+    def __str__(self):
+        return self.description
+
+
+class Homeless (models.Model):
+    frist_name = models.CharField(max_length=30)
+    second_name = models.CharField(max_length=30)
+    nickname = models.CharField(max_length=30)
+    birth_date = models.DateField()
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    cpf = models.CharField(max_length=14, blank=True, verbose_name='CPF')
+    rg = models.CharField(max_length=13, blank=True, verbose_name=('RG'))
+    issuing_body = models.CharField(max_length=12, blank=True)
+    height = models.DecimalField(max_digits=5, decimal_places=3)
+    weight = models.DecimalField(max_digits=5, decimal_places=4)
+    blood_type = models.CharField(max_length=4, choices=BLOOD_TYPE_CHOICES)
+    registration_date = models.DateField(auto_now = False, auto_now_add=True)
+    nationality = models.ForeignKey('Nationality', on_delete=models.CASCADE) #ForeignKey
+    about = models.OneToOneField('About', on_delete=models.CASCADE) #ForeignKey
+    
+    class Meta:
+        db_table = 'homeless'
+
+    def __str__(self):
+        return '{} {} ({})' .format(self.frist_name, self.second_name, self.nickname)
