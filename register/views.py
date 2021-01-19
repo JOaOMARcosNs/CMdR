@@ -1,6 +1,6 @@
 from django.views.generic.edit import CreateView
 
-from .models import Nationality , About
+from .models import Nationality, About
 
 from django.urls import reverse_lazy
 
@@ -13,8 +13,9 @@ class NationalityCreate(CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('home')
 
+
 class AboutCreate(CreateView):
-    models = About
-    fields = ['description', 'history','sexual_orientation','breed','ethnicity','school_level']
+    model = About
+    fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
     template_name = 'register/form.html'
     success_url = reverse_lazy('home')

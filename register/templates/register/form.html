@@ -1,0 +1,24 @@
+{% extends 'pages/model.html'%}
+
+{% load static %}
+
+{% block title %}
+<h1>Register</h1>
+{% endblock %}
+
+<hr>
+
+{% block content %}
+
+    <form action="" method="POST" class="form">
+        
+        {% csrf_token %}
+
+        {{ form.as_p}}
+
+        <button type="submit" class="btn btn-primary">Register</button>
+
+    </form>
+
+
+{% endblock %}

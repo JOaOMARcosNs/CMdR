@@ -5,8 +5,11 @@
 }
 
 body{
+    display: flex;
     font-family: 'Open Sans', sans-serif;
     background-color: #E5E5E5;
+    flex-direction: column;
+    min-height: 100%;
 }
 
 header{
@@ -63,10 +66,11 @@ footer{
     /* margin-top: 305px; */
     text-align: center;
     background-color: #20698D;
-    padding: 1.5rem;
-    position:absolute;
-    bottom:0;
-    width:100%;
+    padding: 1.02rem;
+    /* position:absolute;
+    bottom:0; 
+    width:100%;  */
+    margin-top: auto;
 
 }
 
@@ -76,4 +80,50 @@ footer p {
     font-weight: normal;
     font-size: 1rem;
     color: #E5E5E5;
+}
+footer img {
+    margin-top:10px;
+}
+
+.content{
+    text-align: center; 
+}
+
+
+.form  input{
+    width:400px;
+    height: 30px;
+    border: 0;
+
+}
+.form select{
+    margin-top:10px;
+    width:400px;
+    height: 30px;
+    border: 0;
+}
+.form textarea {
+    width: 400px;
+    height: 100px;
+    resize: none;
+    border: 0;
+}
+
+
+
+.btn-primary{
+    background:#47954F;
+    padding-left: 50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right: 50px;
+    border: 0;
+    font-style: normal;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+label{
+    display: flex;
+    flex-direction: column;
 }
