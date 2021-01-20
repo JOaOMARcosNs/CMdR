@@ -1,5 +1,12 @@
 {% extends 'pages/model-bootstrap.html'%}
+
 {% load static %}
+
+{% block link %}
+<a href="{% url 'register-nationality'%}"><img src="/static/img/plus-square.svg" alt="" title="ADD"></a>
+{% endblock %}
+
+
 
 {% block title %}
 <h1>List nationality of registered</h1>
@@ -27,7 +34,6 @@
                 {{ nationality.state }}
             </td>
             <td>
-                <a href="{% url 'register-nationality' %}"><img src="/static/img/plus.svg" alt="" title="ADD"></a>
                 <a href="{% url 'edit-nationality' nationality.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
                 <a href="{% url 'delete-nationality' nationality.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
             </td>

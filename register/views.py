@@ -20,7 +20,7 @@ class AboutCreate(CreateView):
     model = About
     fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-about')
 
 class HomelessCreate(CreateView):
     model = Homeless
@@ -42,7 +42,7 @@ class AboutUpdate(UpdateView):
     model = About
     fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-about')
 
 class HomelessUpdate(UpdateView):
     model = Homeless
@@ -62,7 +62,7 @@ class NationalityDelete(DeleteView):
 class AboutDelete(DeleteView):
     model = About
     template_name = 'register/form-excluir.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-about')
 
 
 class HomelessDelete(DeleteView):
@@ -81,6 +81,9 @@ class NationalityList(ListView):
 class AboutList(ListView):
     model = About
     template_name = 'register/list/about.html'
+
+
+
 
 
 

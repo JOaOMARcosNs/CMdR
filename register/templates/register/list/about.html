@@ -1,11 +1,69 @@
-{% extends 'pages/model.html'%}
+{% extends 'pages/model-bootstrap.html'%}
 {% load static %}
 
-{% block title %}
-<h1></h1>
+{% block link %}
+<a href="{% url 'register-about'%}"><img src="/static/img/plus-square.svg" alt="" title="ADD"></a>
 {% endblock %}
 
 
-{% block content %}
 
+
+{% block title %}
+<h1>List about of registered</h1>
+<p></p>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Description</th>
+            <th>History</th>
+            <th>Sexual_orientation</th>
+            <th>Breed</th>
+            <th>Ethnicity</th>
+            <th>School_level</th>
+            <th>Option</th>
+        </tr>
+        {% for about in object_list  %}
+        <tr>
+
+            <td>
+                {{about.description}}
+            </td>
+
+            <td>
+                {{about.history}}
+            </td>
+
+            <td>
+                {{about.sexual_orientation}}
+            </td>
+
+            <td>
+                {{about.breed}}
+            </td>
+
+            <td>
+                {{about.ethnicity}}
+            </td>
+
+            <td>
+                {{about.school_level}}
+            </td>
+            <td>
+                <a href="{% url 'edit-about' about.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
+                <a href="{% url 'delete-about' about.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+            </td>
+
+        </tr>
+        {% empty %}
+        
+        <tr>
+            <td colspan="6">Without register</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
 {% endblock %}
