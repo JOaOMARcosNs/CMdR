@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block title %}
-<h1>Register</h1>
+<h1>Delete register</h1>
+<p>Confirm registration to be permanently deleted</p>
 {% endblock %}
 
 <hr>
@@ -11,12 +12,16 @@
 {% block content %}
 
     <form action="" method="POST" class="form">
+
+        <p> 
+            Do you want to delete the register {{ object }}?
+        </p>
         
         {% csrf_token %}
 
         {{ form.as_p}}
 
-        <button type="submit" class="btn-register">Register</button>
+        <button type="submit" class="btn-delete">Delete</button>
 
     </form>
 

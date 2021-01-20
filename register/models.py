@@ -113,11 +113,11 @@ class Homeless (models.Model):
     weight = models.DecimalField(max_digits=5, decimal_places=4)
     blood_type = models.CharField(max_length=4, choices=BLOOD_TYPE_CHOICES)
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
-    nationality = models.ForeignKey('Nationality', on_delete=models.CASCADE) #ForeignKey
-    about = models.OneToOneField('About', on_delete=models.CASCADE) #ForeignKey
+    nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
+    about = models.OneToOneField('About', on_delete=models.PROTECT) #ForeignKey
     
     class Meta:
         db_table = 'homeless'
 
     def __str__(self):
-        return '{} {} ({})' .format(self.frist_name, self.second_name, self.nickname)
+        return '{} {}  in nickname:({})' .format(self.frist_name, self.second_name, self.nickname)

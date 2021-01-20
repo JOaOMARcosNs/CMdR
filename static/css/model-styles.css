@@ -68,30 +68,36 @@ header img{
     text-align: center;
     
 }
+.form{
+    margin-top:50px;
+}
 
 
 .form  input{
-    width:400px;
-    height: 30px;
+    width:600px;
+    height: 50px;
     border: 0;
+    outline: 0;
 
 }
 .form select{
     margin-top:10px;
-    width:400px;
-    height: 30px;
+    width:600px;
+    height: 50px;
     border: 0;
+    outline: 0;
 }
 .form textarea {
-    width: 400px;
+    width: 600px;
     height: 100px;
     resize: none;
     border: 0;
+    outline: 0;
 }
 
 
 
-.btn-primary{
+.btn-register{
     background:#47954F;
     padding-left: 50px;
     padding-top:20px;
@@ -102,7 +108,24 @@ header img{
     font-weight: bold;
     margin-top:10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
+
+.btn-delete{
+    background:#F00;
+    padding-left: 50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right: 50px;
+    border: 0;
+    font-style: normal;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 label{
     display: flex;
     align-items: center;
