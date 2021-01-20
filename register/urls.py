@@ -2,6 +2,7 @@ from django.urls import path
 from .views import NationalityCreate, AboutCreate, HomelessCreate
 from .views import NationalityUpdate, AboutUpdate, HomelessUpdate
 from .views import NationalityDelete, AboutDelete, HomelessDelete
+from .views import NationalityList, AboutList
 # AboutCreate
 
 urlpatterns = [
@@ -15,9 +16,13 @@ urlpatterns = [
     path('edit/about/<int:pk>/', AboutUpdate.as_view(), name='edit-about'),
     path('edit/homeless/<int:pk>/', HomelessUpdate.as_view(), name='edit-homeless'),
 
-######################################################### Delete  #########################################################
+######################################################### DeleteView  #########################################################
     path('delete/nationality/<int:pk>/', NationalityDelete.as_view(), name='delete-nationality'),
     path('delete/about/<int:pk>/', AboutDelete.as_view(), name='delete-about'),
     path('delete/homeless/<int:pk>/', HomelessDelete.as_view(), name='delete-homeless'),
+
+######################################################### ListeView  #########################################################
+    path('list/nationality/', NationalityList.as_view(), name='list-nationality'),
+    path('list/about/', AboutList.as_view(), name='list-about'),
 
 ]

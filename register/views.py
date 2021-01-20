@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from .models import Nationality, About, Homeless
 
@@ -12,7 +13,7 @@ class NationalityCreate(CreateView):
     model = Nationality
     fields = ['city', 'state']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-nationality')
 
 
 class AboutCreate(CreateView):
@@ -35,7 +36,7 @@ class NationalityUpdate(UpdateView):
     model = Nationality
     fields = ['city', 'state']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-nationality')
 
 class AboutUpdate(UpdateView):
     model = About
@@ -56,7 +57,7 @@ class HomelessUpdate(UpdateView):
 class NationalityDelete(DeleteView):
     model = Nationality
     template_name = 'register/form-excluir.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-nationality')
 
 class AboutDelete(DeleteView):
     model = About
@@ -68,3 +69,18 @@ class HomelessDelete(DeleteView):
     model = Homeless
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('home-home')
+
+
+######################################################### ListeView  #########################################################
+
+class NationalityList(ListView):
+    model = Nationality
+    template_name = 'register/list/natiomality.html'
+
+
+class AboutList(ListView):
+    model = About
+    template_name = 'register/list/about.html'
+
+
+

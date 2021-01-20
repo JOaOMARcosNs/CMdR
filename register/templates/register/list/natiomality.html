@@ -1,0 +1,45 @@
+{% extends 'pages/model-bootstrap.html'%}
+{% load static %}
+
+{% block title %}
+<h1>List nationality of registered</h1>
+<p></p>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>City</th>
+            <th>State</th>
+            <th>Option</th>
+        </tr>
+
+        {% for nationality in object_list  %}
+        <tr>
+
+            <td>
+                {{ nationality.city }}
+            </td>
+            <td>
+                {{ nationality.state }}
+            </td>
+            <td>
+                <a href="{% url 'register-nationality' %}"><img src="/static/img/plus.svg" alt="" title="ADD"></a>
+                <a href="{% url 'edit-nationality' nationality.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
+                <a href="{% url 'delete-nationality' nationality.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+            </td>
+        </tr>
+        {% empty %}
+
+        <tr>
+            <td colspan="3">Without register</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</div>
+{% endblock %}
