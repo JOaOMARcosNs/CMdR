@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
-from .models import Nationality, About, Homeless
+from .models import Nationality, About, Homeless, Addiction
 
 from django.urls import reverse_lazy
 
@@ -28,6 +28,12 @@ class HomelessCreate(CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
+class AddictionCreate(CreateView):
+    model = Addiction
+    fields = ['name_addiction', 'type_addiction', 'homeless']
+    template_name = 'register/form.html'
+    success_url = reverse_lazy('home')
+
 
 
 ######################################################### UpdateView  #########################################################
@@ -50,6 +56,11 @@ class HomelessUpdate(UpdateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
+class AddictionUpdate(UpdateView):
+    model = Addiction
+    fields = ['name_addiction', 'type_addiction', 'homeless']
+    template_name = 'register/form.html'
+    success_url = reverse_lazy('home')
 
 
 ######################################################### DeleteView  #########################################################
@@ -70,6 +81,11 @@ class HomelessDelete(DeleteView):
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-homeless')
 
+class AddictionDelete(DeleteView):
+    model = Addiction
+    template_name = 'register/form.html'
+    success_url = reverse_lazy('home')
+
 
 ######################################################### ListeView  #########################################################
 
@@ -86,6 +102,10 @@ class AboutList(ListView):
 class HomelessList(ListView):
     model = Homeless
     template_name = 'register/list/homeless.html'
+
+class AddictionList(ListView):
+    model = Addiction
+    template_name = 'register/list/addiction.html'
 
 
 
