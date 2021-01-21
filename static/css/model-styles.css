@@ -66,37 +66,9 @@ header img{
 
 
 .content{
-    text-align: center;
-    
+    width: min(80vw, 10000px);
+    margin:auto  
 }
-.form{
-    margin-top:50px;
-}
-
-
-.form  input{
-    width:600px;
-    height: 50px;
-    border: 0;
-    outline: 0;
-
-}
-.form select{
-    margin-top:10px;
-    width:600px;
-    height: 50px;
-    border: 0;
-    outline: 0;
-}
-.form textarea {
-    width: 600px;
-    height: 100px;
-    resize: none;
-    border: 0;
-    outline: 0;
-}
-
-
 
 .btn-register{
     background:#47954F;
@@ -129,12 +101,6 @@ header img{
 
 .img-plus{
     margin-bottom: 8px;
-}
-
-label{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 
 @media only screen and (max-width: 1024px){

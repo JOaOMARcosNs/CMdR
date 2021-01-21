@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'register.apps.RegisterConfig',
+    'crispy_forms',
 ]
+
+# CRISPY_FORMS
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

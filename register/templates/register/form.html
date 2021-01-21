@@ -1,20 +1,23 @@
 {% extends 'pages/model.html'%}
 
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}
 <h1>Register</h1>
+<p>Fill in the required fields</p>
 {% endblock %}
 
 <hr>
 
 {% block content %}
 
-    <form action="" method="POST" class="form">
+<!-- class="form" -->
+    <form action="" method="POST">
         
         {% csrf_token %}
 
-        {{ form.as_p}}
+        {{ form|crispy}}
 
         <button type="submit" class="btn-register">Register</button>
 
