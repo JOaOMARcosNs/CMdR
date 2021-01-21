@@ -36,7 +36,27 @@
     rgba(255, 255, 255, 0.15),
     rgba(255, 255, 255, 0)
   );
+  
 }
+.contentt{
+  margin-left:90px;
+  margin-right: 90px;
+}
+@media only screen and (max-width: 600px){
+  .contentt{
+      margin-left:0;
+      margin-right:0;
+  }
+}
+
+
+
+
+
+
+
+
+
 *,
 ::after,
 ::before {
@@ -2625,8 +2645,8 @@ fieldset:disabled .btn {
 }
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  /* background-color: #6c757d;
+  border-color: #6c757d; */
 }
 .btn-secondary:hover {
   color: #fff;

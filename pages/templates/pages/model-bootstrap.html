@@ -14,11 +14,20 @@
 <body>
     <header>
         <a href="#"><h2 id="logo">CMdR</h2></a>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Register
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'list-homeless' %}">Homeless</a></li>
+              <li><a class="dropdown-item" href="{% url 'list-about' %}">About</a></li>
+              <li><a class="dropdown-item" href="{% url 'list-nationality' %}">Nationality</a></li>
+            </ul>
+        </div>
+
         <div >
             <a href="#"><img class="login" src="/static/img/log-out.svg" alt=""></a>
-            {% block link %}
-            <a href="#"><img src="/static/img/plus-square.svg" alt=""></a>
-            {% endblock %}
         </div>
     </header>
 
@@ -29,10 +38,13 @@
         <p>Fill out all mandatory fields!!</p>
         {% endblock %}
     </div>
-    <div class="content">
+    <div class="contentt">
         {% block content %}
         {% endblock %}
     </div>
     </main>
 </body>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script> 
+
 </html>

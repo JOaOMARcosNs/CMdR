@@ -1,16 +1,13 @@
 {% extends 'pages/model-bootstrap.html'%}
 {% load static %}
 
-{% block link %}
-<a href="{% url 'register-about'%}"><img src="/static/img/plus-square.svg" alt="" title="ADD"></a>
-{% endblock %}
 
 
 
 
 {% block title %}
 <h1>List about of registered</h1>
-<p></p>
+<p><a href="{% url 'register-about'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus"></a> ADD</p>
 {% endblock %}
 {% block content %}
 <div class="table-responsive">
