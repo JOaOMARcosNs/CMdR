@@ -1,5 +1,5 @@
 from django.contrib import admin
-from register.models import Nationality, About, Homeless
+from register.models import Nationality, About, Homeless, Addiction
 # Register your models here.
 
 class Show_about(admin.ModelAdmin):
@@ -14,8 +14,14 @@ class Show_homeless(admin.ModelAdmin):
     list_display = ('id', 'frist_name', 'second_name', 'cpf', 'rg')
     list_filter = ('id', 'frist_name', 'second_name', 'cpf', 'rg')
 
+class Show_addiction(admin.ModelAdmin):
+    list_display = ('id', 'name_addiction', 'type_addiction')
+    list_filter = ('id', 'name_addiction', 'type_addiction')
+
+
 
 
 admin.site.register(Nationality, Show_nationality)
 admin.site.register(About, Show_about)
 admin.site.register(Homeless, Show_homeless)
+admin.site.register(Addiction, Show_addiction)

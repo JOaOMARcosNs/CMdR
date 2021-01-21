@@ -121,3 +121,17 @@ class Homeless (models.Model):
 
     def __str__(self):
         return '{} {}  in nickname:({})' .format(self.frist_name, self.second_name, self.nickname)
+
+
+
+class Addiction(models.Model):
+    name_addiction = models.CharField(max_length=200)
+    type_addiction = models.CharField(max_length=200)
+    homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+
+    class Meta:
+        db_table = 'addiction'
+
+    def __str__(self):
+        return '{} of type {} ({})' .format(self.name_addiction, self.type_addiction, self.homeless.nickname)
+        
