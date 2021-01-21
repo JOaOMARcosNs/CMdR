@@ -83,7 +83,7 @@ class HomelessDelete(DeleteView):
 
 class AddictionDelete(DeleteView):
     model = Addiction
-    template_name = 'register/form.html'
+    template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('home')
 
 

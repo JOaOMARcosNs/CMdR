@@ -133,5 +133,5 @@ class Addiction(models.Model):
         db_table = 'addiction'
 
     def __str__(self):
-        return '{} of type {} ({})' .format(self.name_addiction, self.type_addiction, self.homeless.nickname)
+        return '{} of type {} of homeless ({})' .format(self.name_addiction, self.type_addiction, self.homeless.nickname)
         
