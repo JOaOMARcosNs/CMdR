@@ -109,8 +109,8 @@ class Homeless (models.Model):
     cpf = models.CharField(max_length=14, blank=True, verbose_name='CPF')
     rg = models.CharField(max_length=13, blank=True, verbose_name=('RG'))
     issuing_body = models.CharField(max_length=12, blank=True)
-    height = models.DecimalField(max_digits=5, decimal_places=3)
-    weight = models.DecimalField(max_digits=5, decimal_places=4)
+    height = models.DecimalField(decimal_places=3, max_digits=8)
+    weight = models.DecimalField(decimal_places=3, max_digits=8)
     blood_type = models.CharField(max_length=4, choices=BLOOD_TYPE_CHOICES)
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
     nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
