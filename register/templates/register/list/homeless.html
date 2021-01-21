@@ -1,0 +1,67 @@
+{% extends 'pages/model-bootstrap.html'%}
+
+{% load static %}
+
+{% block link %}
+<a href="{% url 'register-homeless'%}"><img src="/static/img/plus-square.svg" alt="" title="ADD"></a>
+{% endblock %}
+
+{% block title %}
+<h1>List homeless of registered</h1>
+<p></p>
+{% endblock %}
+
+{% block content %}
+<div class="teble-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Frist_name</th>
+            <th>Second_name</th>
+            <th>Nickname</th>
+            <th>Birth_date</th>
+            <th>Gender</th>
+            <th>CPF</th>
+            <th>RG</th>
+            <th>Issuing_body</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Blood_type</th>
+            <th>Nationality</th>
+            <th>About</th>
+            <th>Option</th>
+        </tr>
+
+        {% for homeless in object_list %}
+        <tr>
+
+            <td> {{ homeless.frist_name }} </td>
+            <td> {{ homeless.second_name }} </td>
+            <td> {{ homeless.nickname }} </td>
+            <td> {{ homeless.birth_date }} </td>
+            <td> {{ homeless.gender }} </td>
+            <td> {{ homeless.cpf }} </td>
+            <td> {{ homeless.rg }} </td>
+            <td> {{ homeless.issuing_body }} </td>
+            <td> {{ homeless.height }} </td>
+            <td> {{ homeless.weight }} </td>
+            <td> {{ homeless.blood_type }} </td>
+            <td> {{ homeless.nationality }} </td>
+            <td> {{ homeless.about }} </td>
+            <td>
+                <a href="{% url 'edit-homeless' homeless.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
+                <a href="{% url 'delete-homeless' homeless.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+            </td>
+
+        </tr>
+
+        {% empty %}
+        <tr>
+            <td colspan="13">Without register</td> 
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+</div>
+{% endblock %} 

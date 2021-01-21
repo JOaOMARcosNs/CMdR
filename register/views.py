@@ -26,7 +26,7 @@ class HomelessCreate(CreateView):
     model = Homeless
     fields = ['frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-homeless')
 
 
 
@@ -48,7 +48,7 @@ class HomelessUpdate(UpdateView):
     model = Homeless
     fields = ['frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-homeless')
 
 
 
@@ -68,7 +68,7 @@ class AboutDelete(DeleteView):
 class HomelessDelete(DeleteView):
     model = Homeless
     template_name = 'register/form-excluir.html'
-    success_url = reverse_lazy('home-home')
+    success_url = reverse_lazy('list-homeless')
 
 
 ######################################################### ListeView  #########################################################
@@ -83,7 +83,9 @@ class AboutList(ListView):
     template_name = 'register/list/about.html'
 
 
-
+class HomelessList(ListView):
+    model = Homeless
+    template_name = 'register/list/homeless.html'
 
 
 
