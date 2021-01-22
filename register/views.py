@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
-from .models import Nationality, About, Homeless, Addiction
+from .models import Nationality, About, Homeless, Addiction, Disease
 
 from django.urls import reverse_lazy
 
@@ -32,6 +32,12 @@ class AddictionCreate(CreateView):
     model = Addiction
     fields = ['name_addiction', 'type_addiction', 'homeless']
     template_name = 'register/form.html'
+    success_url = reverse_lazy('list-addiction')
+
+class DiseaseCreate(CreateView):
+    model = Disease
+    fields = ['name_disease', 'type_disease', 'homeless']
+    template_name = 'register/form.html'
     success_url = reverse_lazy('home')
 
 
@@ -60,6 +66,12 @@ class AddictionUpdate(UpdateView):
     model = Addiction
     fields = ['name_addiction', 'type_addiction', 'homeless']
     template_name = 'register/form.html'
+    success_url = reverse_lazy('list-addiction')
+
+class DiseaseUpdate(UpdateView):
+    model = Disease
+    fields = ['name_disease', 'type_disease', 'homeless']
+    template_name = 'register/form.html'
     success_url = reverse_lazy('home')
 
 
@@ -84,6 +96,11 @@ class HomelessDelete(DeleteView):
 class AddictionDelete(DeleteView):
     model = Addiction
     template_name = 'register/form-excluir.html'
+    success_url = reverse_lazy('list-addiction')
+
+class DiseaseDelete(DeleteView):
+    model = Disease
+    template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('home')
 
 
@@ -107,5 +124,7 @@ class AddictionList(ListView):
     model = Addiction
     template_name = 'register/list/addiction.html'
 
-
+class DiseaseList(ListView):
+    model = Disease
+    template_name = 'register/list/disease.html'
 
