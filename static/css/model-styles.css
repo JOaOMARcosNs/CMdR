@@ -23,6 +23,9 @@ header{
 a{
     text-decoration: none;
 }
+.a{
+    margin-left:500px;
+}
 #logo{
     padding:0.7rem;
     color: #E5E5E5;
@@ -104,31 +107,10 @@ header img{
 }
 
 @media only screen and (max-width: 1024px){
-    .form  input{
-        width: 200px; 
-    }
-    .form select{
-        width:200px;
-    }
-    .form textarea {
-        width:200px;
-    }
-    .content{
-        margin-top: 100px; 
+    .a{
+        margin-left:0;
     }
     
-}
-
-@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait) {
-    .form  input{
-        width: 400px; 
-    }
-    .form select{
-        width:400px;
-    }
-    .form textarea {
-        width:400px;
-    }
 }
 
 

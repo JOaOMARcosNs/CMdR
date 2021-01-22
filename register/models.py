@@ -144,7 +144,7 @@ class Disease(models.Model):
           db_table = 'Disease'
 
       def __str__(self):
-          return '{} of type {} of homeless ({})'.format(self.name_disease, self.type_disease)
+          return '{} of type {} of homeless ({})'.format(self.name_disease, self.type_disease, self.homeless.nickname)
 
 
 
