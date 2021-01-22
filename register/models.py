@@ -106,8 +106,8 @@ class Homeless (models.Model):
     nickname = models.CharField(max_length=30)
     birth_date = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    cpf = models.CharField(max_length=14, blank=True, verbose_name='CPF')
-    rg = models.CharField(max_length=13, blank=True, verbose_name=('RG'))
+    cpf = models.CharField(max_length=14, blank=True, verbose_name='CPF', unique=True)
+    rg = models.CharField(max_length=13, blank=True, verbose_name='RG', unique=True)
     issuing_body = models.CharField(max_length=12, blank=True)
     height = models.DecimalField(decimal_places=3, max_digits=8)
     weight = models.DecimalField(decimal_places=3, max_digits=8)
@@ -134,4 +134,20 @@ class Addiction(models.Model):
 
     def __str__(self):
         return '{} of type {} of homeless ({})' .format(self.name_addiction, self.type_addiction, self.homeless.nickname)
-        
+
+class Disease(models.Model):
+      name_disease = models.CharField(max_length=90)
+      type_disease = models.CharField(max_length=90)
+      homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+
+      class Meta:
+          db_table = 'Disease'
+
+      def __str__(self):
+          return '{} of type {} of homeless ({})'.format(self.name_disease, self.type_disease)
+
+
+
+    
+
+    
