@@ -38,7 +38,7 @@ class DiseaseCreate(CreateView):
     model = Disease
     fields = ['name_disease', 'type_disease', 'homeless']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('list-disease')
 
 
 
@@ -72,7 +72,7 @@ class DiseaseUpdate(UpdateView):
     model = Disease
     fields = ['name_disease', 'type_disease', 'homeless']
     template_name = 'register/form.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('list-disease')
 
 
 ######################################################### DeleteView  #########################################################
@@ -101,7 +101,7 @@ class AddictionDelete(DeleteView):
 class DiseaseDelete(DeleteView):
     model = Disease
     template_name = 'register/form-excluir.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('list-disease')
 
 
 ######################################################### ListeView  #########################################################

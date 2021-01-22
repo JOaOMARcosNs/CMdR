@@ -1,0 +1,44 @@
+{% extends 'pages/model-bootstrap.html'%}
+{% load static %}
+
+
+{% block title %}
+<h1>List disease of registered</h1>
+<p></p>
+<a href="{% url 'register-disease'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus"></a> ADD
+{% endblock %}
+{% block content %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>Name disease</th>
+                <th>Type disease</th>
+                <th>Homeless</th>
+                <th>Option</th>
+            </tr>
+            {% for disease in object_list  %}
+                <tr>
+                    <td> {{disease.name_disease}} </td>
+                    <td> {{disease.type_disease}} </td>
+                    <td> {{disease.homeless}} </td>
+                    <td>
+                        <a href="{% url 'edit-disease' disease.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
+                        <a href="{% url 'delete-disease' disease.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+                    </td>
+                </tr>
+
+            {% empty %}
+                <tr>
+                    <td colspan="3">Without register</td>
+                </tr>
+
+            {% endfor %}
+
+
+
+        </table>
+
+
+    </div>
+
+{% endblock %}
