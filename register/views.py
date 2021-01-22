@@ -108,7 +108,7 @@ class DiseaseDelete(DeleteView):
 
 class NationalityList(ListView):
     model = Nationality
-    template_name = 'register/list/natiomality.html'
+    template_name =  'register/list/natiomality.html'
 
 
 class AboutList(ListView):
