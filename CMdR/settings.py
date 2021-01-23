@@ -133,6 +133,6 @@ STATICFILES_DIRS = [
 
 # config authentication
 
-LOGIN_REDIRECT_URL = 'home-home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
