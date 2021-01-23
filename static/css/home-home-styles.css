@@ -17,6 +17,15 @@ header{
     flex: 1;
     padding:16px;
 }
+.a{
+    margin-left:500px;
+}
+
+.img-dropdown-menu{
+    margin:0px;
+    margin-right: 5px;
+}
+
 a{
     text-decoration: none;
 }
@@ -37,7 +46,7 @@ header img{
     margin:auto
 }
 .container h1{
-    padding-top: 7rem;
+    padding-top: 6rem;
     font-style: normal;
     font-size: 3rem;
     font-weight: bold;
@@ -79,9 +88,9 @@ footer img{
 #container-da-imagem{
     max-width: 100%;
 }
-.container img{
+.img-contentt{
     width: min(90vw, 1059px);
-    padding-left: -50px;
+    margin-top: -8px;
     max-width: 100%;
     position: absolute;
     display: flex;
