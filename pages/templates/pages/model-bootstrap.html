@@ -32,7 +32,17 @@
         
 
         <div >
-            <a href="{% url 'logout' %}"><img class="login" src="/static/img/log-out.svg" alt=""></a>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  User
+                </a>
+              
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li><a class="dropdown-item" href="#"><img src="/static/img/user.svg" alt="" class="img-dropdown-menu">My data </a></li>
+                  <li><a class="dropdown-item" href="#"><img src="/static/img/lock.svg" alt="" class="img-dropdown-menu">Change Password</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="/static/img/log-out.svg" alt="" class="img-dropdown-menu">Exit</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 

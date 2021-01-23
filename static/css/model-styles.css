@@ -101,6 +101,10 @@ header img{
     text-decoration: none;
     cursor: pointer;
 }
+.img-dropdown-menu{
+    margin:0px;
+    margin-right: 5px;
+}
 
 .img-plus{
     margin-bottom: 8px;
