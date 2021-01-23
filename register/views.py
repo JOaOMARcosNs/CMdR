@@ -5,36 +5,43 @@ from .models import Nationality, About, Homeless, Addiction, Disease
 
 from django.urls import reverse_lazy
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
 ######################################################### CreateView #########################################################
-class NationalityCreate(CreateView):
+class NationalityCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Nationality
     fields = ['city', 'state']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-nationality')
 
 
-class AboutCreate(CreateView):
+class AboutCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = About
     fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-about')
 
-class HomelessCreate(CreateView):
+class HomelessCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Homeless
     fields = ['frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
-class AddictionCreate(CreateView):
+class AddictionCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Addiction
     fields = ['name_addiction', 'type_addiction', 'homeless']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-addiction')
 
-class DiseaseCreate(CreateView):
+class DiseaseCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Disease
     fields = ['name_disease', 'type_disease', 'homeless']
     template_name = 'register/form.html'
@@ -44,31 +51,36 @@ class DiseaseCreate(CreateView):
 
 ######################################################### UpdateView  #########################################################
 
-class NationalityUpdate(UpdateView):
+class NationalityUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Nationality
     fields = ['city', 'state']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-nationality')
 
-class AboutUpdate(UpdateView):
+class AboutUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = About
     fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-about')
 
-class HomelessUpdate(UpdateView):
+class HomelessUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Homeless
     fields = ['frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
-class AddictionUpdate(UpdateView):
+class AddictionUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Addiction
     fields = ['name_addiction', 'type_addiction', 'homeless']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-addiction')
 
-class DiseaseUpdate(UpdateView):
+class DiseaseUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Disease
     fields = ['name_disease', 'type_disease', 'homeless']
     template_name = 'register/form.html'
@@ -77,28 +89,33 @@ class DiseaseUpdate(UpdateView):
 
 ######################################################### DeleteView  #########################################################
 
-class NationalityDelete(DeleteView):
+class NationalityDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Nationality
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-nationality')
 
-class AboutDelete(DeleteView):
+class AboutDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = About
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-about')
 
 
-class HomelessDelete(DeleteView):
+class HomelessDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Homeless
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-homeless')
 
-class AddictionDelete(DeleteView):
+class AddictionDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Addiction
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-addiction')
 
-class DiseaseDelete(DeleteView):
+class DiseaseDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Disease
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-disease')
@@ -106,25 +123,29 @@ class DiseaseDelete(DeleteView):
 
 ######################################################### ListeView  #########################################################
 
-class NationalityList(ListView):
+class NationalityList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Nationality
     template_name =  'register/list/natiomality.html'
 
 
-class AboutList(ListView):
+class AboutList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = About
     template_name = 'register/list/about.html'
 
 
-class HomelessList(ListView):
+class HomelessList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Homeless
     template_name = 'register/list/homeless.html'
 
-class AddictionList(ListView):
+class AddictionList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Addiction
     template_name = 'register/list/addiction.html'
 
-class DiseaseList(ListView):
+class DiseaseList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Disease
     template_name = 'register/list/disease.html'
-

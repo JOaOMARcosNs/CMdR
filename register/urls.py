@@ -3,7 +3,8 @@ from .views import NationalityCreate, AboutCreate, HomelessCreate, AddictionCrea
 from .views import NationalityUpdate, AboutUpdate, HomelessUpdate, AddictionUpdate, DiseaseUpdate
 from .views import NationalityDelete, AboutDelete, HomelessDelete, AddictionDelete, DiseaseDelete
 from .views import NationalityList, AboutList, HomelessList, AddictionList, DiseaseList
-# AboutCreate
+
+
 
 urlpatterns = [
 ######################################################### CreateView #########################################################
