@@ -15,36 +15,50 @@
         <a href="{% url 'index' %}" class="link-home"><h2 id="logo">CMdR</h2></a>
     </header>
     <main class="container">
-        <div class="img-login">
-            <img class="img-login" src="/static/img/login.svg" alt="">
-        </div>
-        <section class="card">
-        <form action="" method="POST">
-
-            {% csrf_token %}
-
-            {{ form.as_p}}
-            
+        {% if request.user.is_authenticated %}
 
 
-        <div class="buttons">
-            <a href=""><button class="login">Log in</button></a>
-        </form>
-            <a href=""><input class="sign-up" type="button" value="Cerate User"></a>
-        </div>
-        <div class="forgot-password">
-            <a href=""><input type="button" value="Forgot Password"></a>
-        </div>
-        <div class="img">
-            <img src="/static/img/home3.png" width="800" alt="">
-        </div>
-    </main>
-    <footer>
-        <p>App desenvolvido por João Marcos Neves da Silva</p>
-        <a href="https://www.instagram.com/1joao_marcos2/" target="_blank"><img src="/static/img/instagram.svg" alt=""></a>
-        <a href="https://www.linkedin.com/in/jo%C3%A3o-marcos-neves-da-silva-7a2a39173/" target="_blank"><img src="/static/img/linkedin.svg" alt=""></a>
-        <a href="https://github.com/JOaOMARcosNs" target="_blank"><img src="/static/img/github.svg" alt=""></a>
-        <a href="https://www.freepik.com/macrovector" target="_blank"><img src="/static/img/image.svg" alt=""></a>
-    </footer>
+            <h1 style="text-align:center; margin-top:50px" >Action unavailable!</h1>
+            <p style="text-align:center; margin:0">Access level does not allow this action</p>
+
+            {% else %}
+            <div class="img-login">
+                <img class="img-login" src="/static/img/login.svg" alt="">
+            </div>
+            <section class="card">
+
+                
+                
+                
+
+            <form action="" method="POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p}}
+                
+
+
+            <div class="buttons">
+                <a href=""><button class="login">Log in</button></a>
+            </form>
+                
+                <a href=""><input class="sign-up" type="button" value="Cerate User"></a>
+            </div>
+            <div class="forgot-password">
+                <a href=""><input type="button" value="Forgot Password"></a>
+            </div>
+            <div class="img">
+                <img src="/static/img/home3.png" width="800" alt="">
+            </div>
+        </main>
+        <footer>
+            <p>App desenvolvido por João Marcos Neves da Silva</p>
+            <a href="https://www.instagram.com/1joao_marcos2/" target="_blank"><img src="/static/img/instagram.svg" alt=""></a>
+            <a href="https://www.linkedin.com/in/jo%C3%A3o-marcos-neves-da-silva-7a2a39173/" target="_blank"><img src="/static/img/linkedin.svg" alt=""></a>
+            <a href="https://github.com/JOaOMARcosNs" target="_blank"><img src="/static/img/github.svg" alt=""></a>
+            <a href="https://www.freepik.com/macrovector" target="_blank"><img src="/static/img/image.svg" alt=""></a>
+        </footer>
+    {% endif %}
 </body>
 </html>
