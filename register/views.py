@@ -1,7 +1,9 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
+from django.views.generic.edit import FormView
 
 from .models import Nationality, About, Homeless, Addiction, Disease
+from .forms import HomelessForm
 
 from django.urls import reverse_lazy
 
@@ -32,8 +34,8 @@ class AboutCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
+    form_class = HomelessForm
     model = Homeless
-    fields = ['frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
