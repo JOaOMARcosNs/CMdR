@@ -22,6 +22,11 @@ class NationalityCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-nationality')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        valid = super().form_valid(form)
+        return valid     
+
 
 class AboutCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')

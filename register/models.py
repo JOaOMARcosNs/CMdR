@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 SCHOOL_LEVEL_CHOICES = (
         ('Complete primary education', 'Complete primary education'),
@@ -30,7 +30,7 @@ ETHNICITY_CHOICES = (
 )
 
 STATE_CHOICES = (
-    ('AC' , 'Acre'),
+    ('AC', 'Acre'),
     ('AL', 'Alagoas'),
     ('AP','Amapá'),
     ('AM','Amazonas'),
@@ -77,6 +77,7 @@ GENDER_CHOICES = (
 class Nationality(models.Model):
     city = models.CharField(max_length=35)
     state = models.CharField(max_length=2, choices=STATE_CHOICES)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         db_table='nationality'
