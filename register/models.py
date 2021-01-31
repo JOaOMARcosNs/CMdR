@@ -93,6 +93,7 @@ class About(models.Model):
     breed = models.CharField(max_length=30, choices=BREED_CHOICES)
     ethnicity = models.CharField(max_length=30, choices=ETHNICITY_CHOICES)
     school_level = models.CharField(max_length=40, choices=SCHOOL_LEVEL_CHOICES)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         db_table ='about'
@@ -116,6 +117,7 @@ class Homeless (models.Model):
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
     nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
     about = models.OneToOneField('About', on_delete=models.PROTECT) #ForeignKey
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
     
     class Meta:
         db_table = 'homeless'
@@ -129,6 +131,7 @@ class Addiction(models.Model):
     name_addiction = models.CharField(max_length=200)
     type_addiction = models.CharField(max_length=200)
     homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         db_table = 'addiction'
@@ -140,6 +143,7 @@ class Disease(models.Model):
       name_disease = models.CharField(max_length=90)
       type_disease = models.CharField(max_length=90)
       homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+      user = models.ForeignKey(User, on_delete=models.PROTECT)
 
       class Meta:
           db_table = 'Disease'

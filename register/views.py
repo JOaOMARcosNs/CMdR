@@ -36,6 +36,11 @@ class AboutCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-about')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        valid = super().form_valid(form)
+        return valid  
+
 class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
@@ -44,6 +49,11 @@ class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        valid = super().form_valid(form)
+        return valid  
+
 class AddictionCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
@@ -51,6 +61,11 @@ class AddictionCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     fields = ['name_addiction', 'type_addiction', 'homeless']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-addiction')
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        valid = super().form_valid(form)
+        return valid  
 
 class DiseaseCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -60,7 +75,10 @@ class DiseaseCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-disease')
 
-
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        valid = super().form_valid(form)
+        return valid 
 
 ######################################################### UpdateView  #########################################################
 
@@ -71,7 +89,6 @@ class NationalityUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     fields = ['city', 'state']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-nationality')
-
 class AboutUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
