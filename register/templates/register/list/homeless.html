@@ -25,7 +25,6 @@
             <th>Blood_type</th>
             <th>Nationality</th>
             <th>About</th>
-            <th>Registration date</th>
             <th>Option</th>
         </tr>
 
@@ -45,7 +44,6 @@
             <td> {{ homeless.blood_type }} </td>
             <td> {{ homeless.nationality }} </td>
             <td> {{ homeless.about }} </td>
-            <td> {{ homeless.registration_date }} </td>
             <td>
                 <a href="{% url 'edit-homeless' homeless.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
                 <a href="{% url 'delete-homeless' homeless.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>

@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-<h1>Register</h1>
+<h1>{{ title }}</h1>
 <p>Fill in the required fields</p>
 {% endblock %}
 
@@ -12,13 +12,16 @@
 
 {% block content %}
 
-<!-- class="form" -->
+
     <form action="" method="POST">
         
         {% csrf_token %}
 
         {{ form|crispy}}
-        <button type="submit" class="btn-register">Register</button>
+
+        <button type="submit" class="btn-register">
+            {{ button }}
+        </button>
     </form>
 
 

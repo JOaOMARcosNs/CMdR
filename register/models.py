@@ -103,6 +103,7 @@ class About(models.Model):
 
 
 class Homeless (models.Model):
+    
     frist_name = models.CharField(max_length=30)
     second_name = models.CharField(max_length=30)
     nickname = models.CharField(max_length=30)
@@ -117,8 +118,8 @@ class Homeless (models.Model):
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
     nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
     about = models.OneToOneField('About', on_delete=models.PROTECT) #ForeignKey
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
-    
+    # use = models.ForeignKey(User, on_delete=models.PROTECT)
+
     class Meta:
         db_table = 'homeless'
 
