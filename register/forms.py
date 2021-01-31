@@ -8,7 +8,7 @@ class DateInput(forms.DateInput):
 class HomelessForm(forms.ModelForm):
     class Meta:
         model = Homeless
-        fields = '__all__'
+        fields = 'frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight', 'blood_type', 'nationality', 'about'
         widgets = {'birth_date': DateInput()}
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

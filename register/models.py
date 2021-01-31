@@ -118,7 +118,7 @@ class Homeless (models.Model):
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
     nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
     about = models.OneToOneField('About', on_delete=models.PROTECT) #ForeignKey
-    # use = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
         db_table = 'homeless'

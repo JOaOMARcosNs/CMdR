@@ -65,6 +65,7 @@ class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     model = Homeless
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-homeless')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = "Homeless registration"
@@ -76,7 +77,7 @@ class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         valid = super().form_valid(form)
-        return valid
+        return valid     
 class AddictionCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
