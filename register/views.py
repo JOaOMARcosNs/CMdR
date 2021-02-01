@@ -208,12 +208,26 @@ class NationalityDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-nationality')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Delete nationality records"
+
+        return context
+
+    
+
 class AboutDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"admins"
     model = About
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-about')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Delete about records"
+
+        return context
 
 
 class HomelessDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
@@ -222,6 +236,12 @@ class HomelessDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Homeless
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-homeless')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Delete homeless records"
+
+        return context
 
 class AddictionDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
@@ -236,6 +256,12 @@ class DiseaseDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     model = Disease
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-disease')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Delete disease records"
+
+        return context
 
 
 ######################################################### ListeView  #########################################################
