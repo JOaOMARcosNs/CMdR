@@ -83,39 +83,41 @@ p label{
 
 .buttons {
     text-align: center;
+    align-items: center;
+    flex-direction: row;
 }
 .buttons button{
-    width: 193px;
-    height: 61px;
-    border:0;
-    padding:20px
-}
-
-.buttons input{
-    width: 193px;
+    width: 390px;
     height: 61px;
     border:0;
     padding:20px;
+    cursor: pointer;
 }
 .login{
     background: #D37506;
+    cursor: pointer;
 }
 .sign-up{
     background: rgba(42, 88, 46, 0.71);
+    
 }
 .forgot-password{
     text-align: center;
+    cursor: pointer;
 }
 .forgot-password{
     text-align: center;
     padding-top: 10px;
 }
 
-.forgot-password input{
-    width: 390px;
+.forgot-password button{
+    width: 170px;
     padding: 20px;
     background: rgba(34, 102, 136, 0.6);
     font-weight: bold;
+    border: 0;
+    margin-right: 30px;
+    cursor: pointer;
 }
 
 /* img ==================*/
