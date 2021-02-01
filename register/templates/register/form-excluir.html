@@ -22,7 +22,9 @@
         {{ form.as_p}}
 
         <button type="submit" class="btn-delete">Delete</button>
-
+        <button type="submit" class="btn-cancel" onclick="window.history.go(-1); return false;">
+            Cancel
+        </button>
     </form>
 
 

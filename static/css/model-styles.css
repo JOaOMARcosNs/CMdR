@@ -87,6 +87,19 @@ header img{
     cursor: pointer;
 }
 
+.btn-cancel {
+    padding-left: 50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right: 50px;
+    border: 0;
+    font-style: normal;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
 .btn-delete{
     background:#F00;
     padding-left: 50px;
