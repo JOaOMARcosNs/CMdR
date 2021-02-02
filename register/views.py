@@ -268,32 +268,32 @@ class DiseaseDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 class NationalityList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = [u"admins", u"user", u"visitor"]
+    group_required = [u"admins", u"user"]
     model = Nationality
     template_name =  'register/list/natiomality.html'
 
 
 class AboutList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = [u"admins", u"user", u"visitor"]
+    group_required = [u"admins", u"user"]
     model = About
     template_name = 'register/list/about.html'
 
 
 class HomelessList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = [u"admins", u"user", u"visitor"]
+    group_required = [u"admins", u"user"]
     model = Homeless
     template_name = 'register/list/homeless.html'
 
 class AddictionList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = [u"admins", u"user", u"visitor"]
+    group_required = [u"admins", u"user"]
     model = Addiction
     template_name = 'register/list/addiction.html'
 
 class DiseaseList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
-    group_required = [u"admins", u"user", u"visitor"]
+    group_required = [u"admins", u"user"]
     model = Disease
     template_name = 'register/list/disease.html'
