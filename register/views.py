@@ -16,8 +16,8 @@ from django.shortcuts import get_list_or_404
 
 ######################################################### CreateView #########################################################
 class NationalityCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
-    login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
+    login_url = reverse_lazy('login')
     model = Nationality
     fields = ['city', 'state']
     template_name = 'register/form.html'
@@ -216,7 +216,7 @@ class NationalityDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
     
 
-class AboutDelete(LoginRequiredMixin, DeleteView):
+class AboutDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"admins"
     model = About

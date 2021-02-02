@@ -7,11 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMdR</title>
     <link rel="stylesheet" href="{% static 'css/create-user.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+    {% if request.user.is_authenticated %}
+    <header>
+        <a href="{% url 'index' %}" class="link-home"><h2 id="logo">CMdR</h2></a>
+    </header>
+        <h1 style="text-align:center; margin-top:50px" >Action unavailable!</h1>
+        <p style="text-align:center; margin:0">Access level does not allow this action</p>
+    {% else %}
     <main>
         <div class="container">
             <div class="content first-column">
@@ -42,5 +50,6 @@
             </div> 
         </div>
     </main>
+    {% endif %}
 </body>
 </html>
