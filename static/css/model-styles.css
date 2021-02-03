@@ -86,6 +86,21 @@ header img{
     margin-bottom: 10px;
     cursor: pointer;
 }
+.btn-save{
+    background:rgb(0, 10, 50);
+    padding-left: 50px;
+    padding-top:20px;
+    padding-bottom:20px;
+    padding-right: 50px;
+    border: 0;
+    font-style: normal;
+    font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #fff;
+    
+}
 
 .btn-cancel {
     padding-left: 50px;
