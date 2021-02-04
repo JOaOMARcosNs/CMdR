@@ -10,9 +10,7 @@
     <title>CMdR</title>
 </head>
 <body>
-
-
-
+    {% if request.user.is_authenticated %}
     <header>
         <nav class="navbar navbar-expand-lg navbar-light nav-color">
             <div class="container-fluid">
@@ -20,7 +18,7 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="#">CMdR</a>
+                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'home'%}">CMdR</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="#">Sobre o projeto</a>
@@ -29,6 +27,28 @@
               </div>
             </div>
           </nav>
+
+          <h1 style="text-align:center; margin-top:50px" >Action unavailable!</h1>
+        <p style="text-align:center; margin:0">Access level does not allow this action</p>
+    </header>
+    {% else %}
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light nav-color">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'home'%}">CMdR</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="#">Sobre o projeto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
     </header>
 
     <main class="text-center mt-5">
@@ -45,7 +65,7 @@
                 </div>
             </form>
             <div class="m-3" >
-                <button type="button" class="btn btn-secondary">Cadastrar</button>
+                <a href="{% url 'register-user'%}"><button type="button" class="btn btn-secondary">Cadastrar</button></a>
                 <a href="">Esqueceu a senha?</a>
             </div>
             
@@ -59,13 +79,13 @@
                     <p>
                         <span class="footer-text">©2021 João Marcos Neves da Silva</span>
                     </p>
-                    <a href="">git<img src="" alt=""></a>
-                    <a href="">likendin<img src="" alt=""></a>
-                    <a href="">img<img src="" alt=""></a>
+                    <a href="https://github.com/JOaOMARcosNs"><img src="/static/img/github.svg" alt=""></a>
+                    <a href="https://www.linkedin.com/in/jo%C3%A3o-marcos-neves-da-silva-7a2a39173/"><img src="/static/img/linkedin.svg" alt=""></a>
                 </div>
                 </p>
             </div>
     </footer>
+    {% endif %}
 </body>
 <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
 </html>
