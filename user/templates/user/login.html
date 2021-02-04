@@ -1,64 +1,71 @@
 {% load static %}
-
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>CMdR</title>
-    <link rel="stylesheet" href="{% static 'css/login-style.css' %}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
+
     <header>
-        <a href="{% url 'index' %}" class="link-home"><h2 id="logo">CMdR</h2></a>
-    </header>
-    <main class="container">
-        {% if request.user.is_authenticated %}
-
-
-            <h1 style="text-align:center; margin-top:50px" >Action unavailable!</h1>
-            <p style="text-align:center; margin:0">Access level does not allow this action</p>
-
-            {% else %}
-            <div class="img-login">
-                <img class="img-login" src="/static/img/login.svg" alt="">
+        <nav class="navbar navbar-expand-lg navbar-light nav-color">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="#">CMdR</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="#">Sobre o projeto</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <section class="card">
+          </nav>
+    </header>
 
-                
-                
-                
-
-            <form id="formm" script="remover" action="" method="POST">
-
+    <main class="text-center mt-5">
+        <div>
+            <form style="max-width: 480px; margin:auto" method="POST">
+                <img src="/static/img/user2.svg" alt="">
+                <h1 class="h3 mb-3">Conecta</h1>
                 {% csrf_token %}
 
                 {{ form.as_p}}
                 
-
-
-            <div class="buttons" style="margin-right:30px;">
-                <button class="login">Log in</button>
+                <div class = "d-grid gap-2">
+                    <button  type="submit" class=" btn-lg btn-primary">Conecta</button>
+                </div>
             </form>
-                
+            <div class="m-3" >
+                <button type="button" class="btn btn-secondary">Cadastrar</button>
+                <a href="">Esqueceu a senha?</a>
             </div>
-            <div class="forgot-password">
-                <a href="{% url 'register-user' %}"><button class="sign-up">Cerate User</button></a>
-                <a href=""><button>Forgot Password"</button></a>
+            
+        </div>
+
+    </main>
+    <footer>
+        <div class="container-fluid text-center p-3">
+            <div class="row">
+                <div class="col-md-4 mx-auto text-center">
+                    <p>
+                        <span class="footer-text">©2021 João Marcos Neves da Silva</span>
+                    </p>
+                    <a href="">git<img src="" alt=""></a>
+                    <a href="">likendin<img src="" alt=""></a>
+                    <a href="">img<img src="" alt=""></a>
+                </div>
+                </p>
             </div>
-            <div class="img">
-                <img src="/static/img/home3.png" width="800" alt="">
-            </div>
-        </main>
-        <footer>
-            <p>App desenvolvido por João Marcos Neves da Silva</p>
-            <a href="https://www.instagram.com/1joao_marcos2/" target="_blank"><img src="/static/img/instagram.svg" alt=""></a>
-            <a href="https://www.linkedin.com/in/jo%C3%A3o-marcos-neves-da-silva-7a2a39173/" target="_blank"><img src="/static/img/linkedin.svg" alt=""></a>
-            <a href="https://github.com/JOaOMARcosNs" target="_blank"><img src="/static/img/github.svg" alt=""></a>
-            <a href="https://www.freepik.com/macrovector" target="_blank"><img src="/static/img/image.svg" alt=""></a>
-        </footer>
-    {% endif %}
+    </footer>
 </body>
+<script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
 </html>

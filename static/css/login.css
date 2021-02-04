@@ -1,0 +1,41 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #E5E5E5;
+}
+
+.nav-color{
+    background-color: #20698D;
+}
+
+.title-fonte{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #E5E5E5;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+footer {
+
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    position: fixed;
+    background-color: #20698D;
+
+}
