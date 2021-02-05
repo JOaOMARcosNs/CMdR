@@ -40,19 +40,20 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'home'%}">CMdR</a>
+                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'index'%}">CMdR</a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="#">Sobre o projeto</a>
                   </li>
                 </ul>
               </div>
+              <a href="{% url 'register-user'%}"><button type="button" class="btn btn-secondary" style="border-color:#20698D; ;background-color: #20698D; ;color:#E5E5E5;">Cadastrar</button></a>
             </div>
           </nav>
 
     </header>
 
-    <main class="text-center mt-5">
+    <main class="text-center mt-1">
         <div>
             <form style="max-width: 480px; margin:auto" method="POST">
                 <img src="/static/img/user2.svg" alt="">
@@ -65,8 +66,8 @@
                     <button  type="submit" class=" btn-lg btn-primary">Conecta</button>
                 </div>
             </form>
-            <div class="m-3" >
-                <a href="{% url 'register-user'%}"><button type="button" class="btn btn-secondary">Cadastrar</button></a>
+            <div class="m-1" >
+                
                 <a href="">Esqueceu a senha?</a>
             </div>
             

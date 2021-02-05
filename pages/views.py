@@ -10,6 +10,6 @@ class Home(TemplateView):
     template_name = "pages/index.html"
 
 
-class Home_home(LoginRequiredMixin,TemplateView):
-    login_url = reverse_lazy('login')
-    template_name = "pages/home-home.html"
+# class Home_home(LoginRequiredMixin,TemplateView):
+#     login_url = reverse_lazy('login')
+#     template_name = "pages/home-home.html"
