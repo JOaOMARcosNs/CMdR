@@ -1,0 +1,45 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color:#E5E5E5; 
+}
+
+.nav-color{
+    background-color: #20698D;
+}
+
+.title-fonte{
+    font-weight: bold;
+    font-size: 30px;
+}
+.container h1{
+    padding-top: 2rem;
+    font-style: normal;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+    letter-spacing: -0.015em;
+
+    color: #143120;
+}
+.container h3{
+    padding-top: 1rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: -0.015em;
+
+    color: #47954F;
+} 
+
+
+footer {
+    background-color: #20698D;
+}
+
+.footer-text{
+    font-weight: bold;
+    font-size: 15px;
+    color:#E5E5E5;
+}
+
