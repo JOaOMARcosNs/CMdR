@@ -3,30 +3,32 @@
 {% load static %}
 
 {% block title %}
-<h1>List homeless of registered</h1>
+<h1>Lista de de todas os sem-tetos cadastrados</h1>
 <p></p>
-<a href="{% url 'register-homeless'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus" title="ADD"></a> ADD
 {% endblock %}
 
 {% block content %}
+<div class="pb-2">
+    <a href="{% url 'register-homeless'%}"><button class="btn btn-primary">Adicionar</button></a>
+</div>
 <div class="table-responsive table-responsive-sm">
-    <table class="table table-striped">
+    <table class="table table-striped table-sm">
         <tr>
-            <th>Frist_name</th>
-            <th>Second_name</th>
-            <th>Nickname</th>
-            <th>Birth_date</th>
-            <th>Gender</th>
+            <th>Priemiro nome</th>
+            <th>Segundo nome</th>
+            <th>Apelido</th>
+            <th>Data de aniversário</th>
+            <th>Genero</th>
             <th>CPF</th>
             <th>RG</th>
-            <th>Issuing_body</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Blood_type</th>
-            <th>Nationality</th>
-            <th>About</th>
-            <th>Registration date</th>
-            <th>Option</th>
+            <th>Órgão expedidor</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Tipo sanguíneo</th>
+            <th>Nacionalidade</th>
+            <th>Sobre</th>
+            <th>Data de registro</th>
+            <th>Opição</th>
         </tr>
 
         {% for homeless in object_list %}
@@ -47,8 +49,8 @@
             <td> {{ homeless.about }} </td>
             <td> {{ homeless.registration_date }} </td>
             <td>
-                <a href="{% url 'edit-homeless' homeless.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
-                <a href="{% url 'delete-homeless' homeless.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+                <a href="{% url 'edit-homeless' homeless.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
+                <a href="{% url 'delete-homeless' homeless.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
             </td>
 
         </tr>

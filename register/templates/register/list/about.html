@@ -3,21 +3,26 @@
 
 
 {% block title %}
-<h1>List about of registered</h1>
+<h1>Lista de história/sobre cadastrada</h1>
 <p></p>
-<a href="{% url 'register-about'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus" title="ADD"></a> ADD
+
 {% endblock %}
 {% block content %}
-<div class="table-responsive">
-    <table class="table table-striped">
+<div class="pb-2">
+    <a href="{% url 'register-about'%}"><button class="btn btn-primary">Adicionar</button></a>
+</div>
+
+<div class="table-responsive table-responsive-sm">
+    
+    <table class="table table-striped table-sm">
         <tr>
-            <th>Description</th>
-            <th>History</th>
-            <th>Sexual orientation</th>
-            <th>Breed</th>
-            <th>Ethnicity</th>
-            <th>School level</th>
-            <th>Option</th>
+            <th>Descrição</th>
+            <th>História</th>
+            <th>Orientação sexual</th>
+            <th>Raça</th>
+            <th>Etinia</th>
+            <th>Nível escolar</th>
+            <th>Opição</th>
         </tr>
         {% for about in object_list  %}
         <tr>
@@ -46,8 +51,8 @@
                 {{about.school_level}}
             </td>
             <td>
-                <a href="{% url 'edit-about' about.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
-                <a href="{% url 'delete-about' about.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+                <a href="{% url 'edit-about' about.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
+                <a href="{% url 'delete-about' about.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
             </td>
 
         </tr>

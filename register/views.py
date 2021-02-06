@@ -132,8 +132,8 @@ class NationalityUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Edit nationality records"
-        context['button'] = "Save"
+        context['title'] = "Editar o registro de nacionalidade cadastrada"
+        context['button'] = "Salvar"
 
         return context
 
@@ -148,8 +148,8 @@ class AboutUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Edit about records"
-        context['button'] = "Save"
+        context['title'] = "Editar o registro de história/sobre cadastrada"
+        context['button'] = "Salvar"
 
         return context
 
@@ -163,8 +163,8 @@ class HomelessUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Edit homeless records"
-        context['button'] = "Save"
+        context['title'] = "Editar o registro do sem-teto cadastrado"
+        context['button'] = "Salvar"
 
         return context
 
@@ -178,8 +178,8 @@ class AddictionUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Edit addiction records"
-        context['button'] = "Save"
+        context['title'] = "Editar o registro de vício cadastrado"
+        context['button'] = "Salvar"
 
         return context
 
@@ -193,8 +193,8 @@ class DiseaseUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Edit disease records"
-        context['button'] = "Save"
+        context['title'] = "Editar o registro da doença cadastrada"
+        context['button'] = "Salvar"
 
         return context
 

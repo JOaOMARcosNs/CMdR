@@ -5,20 +5,23 @@
 
 
 {% block title %}
-<h1>List nationality of registered</h1>
+<h1>Lista de nacionalidade cadastrados</h1>
 <p></p>
-<a href="{% url 'register-nationality'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus" title="ADD"></a> ADD
+
+
 {% endblock %}
 
 
 {% block content %}
-
+<div class="pb-2">
+<a href="{% url 'register-nationality'%}"><button class="btn btn-primary">Adicionar</button></a>
+</div>
 <div class="table-responsive">
     <table class="table table-striped">
         <tr>
-            <th>City</th>
-            <th>State</th>
-            <th>Option</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Opição</th>
         </tr>
 
         {% for nationality in object_list  %}
@@ -31,8 +34,8 @@
                 {{ nationality.state }}
             </td>
             <td>
-                <a href="{% url 'edit-nationality' nationality.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
-                <a href="{% url 'delete-nationality' nationality.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+                <a href="{% url 'edit-nationality' nationality.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
+                <a href="{% url 'delete-nationality' nationality.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
             </td>
         </tr>
         {% empty %}

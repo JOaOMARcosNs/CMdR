@@ -3,18 +3,22 @@
 
 
 {% block title %}
-<h1>List disease of registered</h1>
+<h1>Lista de doença cadastradas</h1>
 <p></p>
-<a href="{% url 'register-disease'%}"><img src="/static/img/plus-square.svg" alt="" class="img-plus"></a> ADD
+
 {% endblock %}
 {% block content %}
+    <div class="pb-2">
+        <a href="{% url 'register-disease'%}"><button class="btn btn-primary">Adicionar</button></a>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <tr>
-                <th>Name disease</th>
-                <th>Type disease</th>
-                <th>Homeless</th>
-                <th>Option</th>
+                <th>Nome da doença</th>
+                <th>Tipo da doença</th>
+                <th>Sem-teto</th>
+                <th>Opição</th>
             </tr>
             {% for disease in object_list  %}
                 <tr>
@@ -22,8 +26,8 @@
                     <td> {{disease.type_disease}} </td>
                     <td> {{disease.homeless}} </td>
                     <td>
-                        <a href="{% url 'edit-disease' disease.pk %}"><img src="/static/img/edit.svg" alt="" title="Edit"></a>
-                        <a href="{% url 'delete-disease' disease.pk %}"><img src="/static/img/trash.svg" alt="" title="Delete"></a>
+                        <a href="{% url 'edit-disease' disease.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
+                        <a href="{% url 'delete-disease' disease.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
                     </td>
                 </tr>
 
