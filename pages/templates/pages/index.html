@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>CMdR</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <li><a href="#"><button class="dropdown-item" type="button">Meus dados</button></a></li>
                     <li><a href="{% url 'password-chage'%}"><button class="dropdown-item" type="button">Muda senha</button></a></li>
-                    <li><a href="{% url 'logout'%}"><button class="dropdown-item" type="button">sair</button></a></li>
+                    <li><a href="{% url 'logout'%}"><button class="dropdown-item" type="button">Sair</button></a></li>
                   </ul>
                 </div>
 
@@ -56,7 +56,7 @@
     </header>
     
     <main class="container">
-      <h1>Não seja mais um<br/>lembre-se<br/>dos sem tetos</h1>
+      <h1 style="color:#143120;">Não seja mais um<br/>lembre-se<br/>dos sem tetos</h1>
       <h3>Use esse projeto para ajudá-los</h3>
       <img src="/static/img/homeless-home.svg" width="1106" height="" alt="">
     </main>

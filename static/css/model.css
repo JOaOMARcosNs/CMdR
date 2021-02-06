@@ -32,10 +32,14 @@ body {
     color: #47954F;
 } 
 
-
 footer {
+    width: 100%;
+    margin: auto;
+    bottom: 0;
+    position: fixed;
     background-color: #20698D;
 }
+
 
 .footer-text{
     font-weight: bold;

@@ -35,8 +35,8 @@ class MyPasswordChangeView(PasswordChangeView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Change Password"
-        context['button'] = "Change"
+        context['title'] = "Mudar senha"
+        context['button'] = "Mudar"
         
 
         return context
@@ -46,8 +46,8 @@ class MyPasswordChangeDoneView(PasswordChangeDoneView):
     template_name = "user/password_reset_done.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Password changed successfully"
-        context['button'] = "Home"
+        context['title'] = "Senha Alterada com sucesso"
+        context['button'] = "Voltar"
         
 
         return context

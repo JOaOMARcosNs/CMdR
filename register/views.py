@@ -25,8 +25,8 @@ class NationalityCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Nationality registration"
-        context['button'] = "Register"
+        context['title'] = "Cadastro de nacionalidade"
+        context['button'] = "Cadastrar"
         
 
         return context
@@ -42,13 +42,13 @@ class AboutCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
     model = About
-    fields = ['description', 'history', 'sexual_orientation', 'breed', 'ethnicity', 'school_level']
+    fields = '__all__'
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-about')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "About registration"
-        context['button'] = "Register"
+        context['title'] = "Cadastro das historias/sobre"
+        context['button'] = "Cadastrar"
         
 
         return context
@@ -63,13 +63,13 @@ class HomelessCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     group_required = [u"admins", u"user"]
     form_class = HomelessForm
     model = Homeless
-    template_name = 'register/form.html'
+    template_name = 'register/form-homeless.html'
     success_url = reverse_lazy('list-homeless')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Homeless registration"
-        context['button'] = "Register"
+        context['title'] = "Cadastro de sem-teto"
+        context['button'] = "Cadastrar"
         
 
         return context
@@ -88,8 +88,8 @@ class AddictionCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Addiction registration"
-        context['button'] = "Register"
+        context['title'] = "Cadastro de vício"
+        context['button'] = "Cadastrar"
         
 
         return context
@@ -109,8 +109,8 @@ class DiseaseCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Disease registration"
-        context['button'] = "Register"
+        context['title'] = "Cadastro de doença"
+        context['button'] = "Cadastrar"
         
 
         return context
@@ -210,7 +210,7 @@ class NationalityDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Delete nationality records"
+        context['title'] = "Excluir cadastro de nacionalidade"
 
         return context
 
@@ -225,7 +225,7 @@ class AboutDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Delete about records"
+        context['title'] = "Excluir cadastro de Historia/sobre"
 
         return context
 
@@ -239,7 +239,7 @@ class HomelessDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Delete homeless records"
+        context['title'] = "Deletar cadastro do sem-teto"
 
         return context
 
@@ -250,6 +250,12 @@ class AddictionDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     template_name = 'register/form-excluir.html'
     success_url = reverse_lazy('list-addiction')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Deletar cadastro de vícios"
+
+        return context
+
 class DiseaseDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     group_required = u"admins"
@@ -259,7 +265,7 @@ class DiseaseDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Delete disease records"
+        context['title'] = "Deletar cadastro de doença"
 
         return context
 

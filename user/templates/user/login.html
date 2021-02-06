@@ -13,26 +13,53 @@
 <body>
     {% if request.user.is_authenticated %}
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light nav-color">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'home'%}">CMdR</a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="#">Sobre o projeto</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-light nav-color">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand title-fonte" style="color:#E5E5E5;" href="{% url 'index'%}">CMdR</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="{% url 'list-homeless' %}">Sem-teto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="{% url 'list-about' %}">Sobre os sem-teto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="{% url 'list-nationality' %}">Nacionalidade</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="{% url 'list-disease' %}">Doenças dos sem-tetos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fonte" aria-current="page" style="color:#E5E5E5;" href="{% url 'list-addiction' %}">Vicios dos sem-tetos</a>
+              </li>
+            </ul>
 
-          <h1 style="text-align:center; margin-top:50px" >Action unavailable!</h1>
+
+            <div class="dropdown" style="padding-right: 49px;">
+              <button class="btn btn-secondary dropdown-toggle" style="border-color:#E5E5E5 ;background-color: #20698D; color:#E5E5E5;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Usuário
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#"><button class="dropdown-item" type="button">Meus dados</button></a></li>
+                <li><a href="{% url 'password-chage'%}"><button class="dropdown-item" type="button">Muda senha</button></a></li>
+                <li><a href="{% url 'logout'%}"><button class="dropdown-item" type="button">Sair</button></a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+          <h1 style="text-align:center; margin-top:50px; font-family: 'Open Sans', sans-serif; font-size:bold;" >Action unavailable!</h1>
         <p style="text-align:center; margin:0">Access level does not allow this action</p>
     </header>
+    
     {% else %}
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light nav-color">
             <div class="container-fluid">
@@ -47,7 +74,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="{% url 'register-user'%}"><button type="button" class="btn btn-secondary" style="border-color:#20698D; ;background-color: #20698D; ;color:#E5E5E5;">Cadastrar</button></a>
+              <a href="{% url 'register-user'%}"><button type="button" class="btn btn-secondary" style="border-color:#E5E5E5; ;background-color: #20698D; ;color:#E5E5E5;">Cadastrar</button></a>
             </div>
           </nav>
 

@@ -4,7 +4,7 @@
 
 {% block title %}
 <h1>{{ title }}</h1>
-<p>Confirm registration to be permanently deleted</p>
+<p>Confirme o cadastro para ser excluído permanentemente</p>
 {% endblock %}
 
 <hr>
@@ -14,15 +14,15 @@
     <form action="" method="POST" class="form">
 
         <p> 
-            Do you want to delete the register {{ object }}?
+            Tem certeza que deseja excluir esse registro?  {{ object }}
         </p>
         
         {% csrf_token %}
         
         {{ form.as_p}}
 
-        <button type="submit" class="btn-delete">Delete</button>
-        <button type="submit" class="btn-cancel" onclick="window.history.go(-1); return false;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-secondary" onclick="window.history.go(-1); return false;">
             Cancel
         </button>
     </form>

@@ -19,6 +19,8 @@
 
         {{ form|crispy}}
         <br>
+        <a href="{% url 'register-about'%}" target="_blank"><button type="button" class="btn btn-primary">Descrição</button></a>
+        <br>
 
         <div class="pt-4 pb-5">
             <button type="submit" class="btn btn-success">
@@ -32,4 +34,12 @@
     </form>
 
 
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+<script src="{%static 'js/jquery.mask.min.js'%}"></script>
+<script src="{%static 'js/jquery-3.5.1.min.js'%}"></script>
+<script src="{%static 'js/jquery.mask.min.js'%}"></script>
+<script src="{%static 'js/mask.js'%}"></script>
 {% endblock %}
