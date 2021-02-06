@@ -2,31 +2,36 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 SCHOOL_LEVEL_CHOICES = (
-        ('Complete primary education', 'Complete primary education'),
-        ('Incomplete elementary school', 'Incomplete elementary school'),
-        ('Complete high school', 'Complete high school'),
-        ('Incomplete high school', 'Incomplete high school'),
-        ('Complete higher education', 'Complete higher education'),
-        ('Incomplete higher education', 'Incomplete higher education'),
-        ('Higher education more', 'Higher education more'),
+        ('Analfabeto', 'Analfabeto'),
+        ('Até 5º Ano Incompleto', 'Até 5º Ano Incompleto'),
+        ('5º Ano Completo', '5º Ano Completo'),
+        ('6º ao 9º Ano do Fundamental', '6º ao 9º Ano do Fundamental'),
+        ('Fundamental Completo', 'Fundamental Completo'),
+        ('Médio Incompleto', 'Médio Incompleto'),
+        ('Médio Completo', 'Médio Completo'),
+        ('Superior Incompleto', 'Superior Incompleto'),
+        ('Superior Completo', 'Superior Completo'),
+        ('Mestrado', 'Mestrado'),
+        ('Doutorado', 'Doutorado'),
+        ('Ignorado', 'Ignorado'),
 )
 
 BREED_CHOICES = (
-        ('Whites' , 'Whites'),
-        ('Dun' , 'Dun'),
-        ('Black' , 'Black'),
-        ('Yellow' , 'Yellow'),
-        ('Native' , 'Native'),
+        ('Brancos' , 'Brancos'),
+        ('Pardos' , 'Pardos'),
+        ('Pretos' , 'Pretos'),
+        ('Indígenas' , 'Indígenas'),
+        ('Amarelos' , 'Amarelos'),
 )
 
 ETHNICITY_CHOICES = (
-        ('Whites' , 'Whites'),
-        ('Black' , 'Black'),
-        ('Native' , 'Native'),
-        ('Dun' , 'Dun'),
-        ('Mulatto' , 'Mulatto'),
+        ('Brancos' , 'Brancos'),
+        ('Pretos' , 'Pretos'),
+        ('Indígenas' , 'Indígenas'),
+        ('Pardos' , 'Pardos'),
+        ('Mulatos' , 'Mulatos'),
         ('Caboclos' , 'Caboclos'),
-        ('Cafuzos' , 'Cafuzos'),
+        ('Confusos' , 'Confusos'),
 )
 
 STATE_CHOICES = (
@@ -75,8 +80,8 @@ GENDER_CHOICES = (
     )
 
 class Nationality(models.Model):
-    city = models.CharField(max_length=35)
-    state = models.CharField(max_length=2, choices=STATE_CHOICES)
+    city = models.CharField(max_length=35, verbose_name='Cidade')
+    state = models.CharField(max_length=2, choices=STATE_CHOICES, verbose_name='Estado')
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
@@ -87,12 +92,12 @@ class Nationality(models.Model):
 
 
 class About(models.Model):
-    description = models.TextField(max_length=999)
-    history = models.TextField(max_length=999)
-    sexual_orientation = models.CharField(max_length=30)
-    breed = models.CharField(max_length=30, choices=BREED_CHOICES)
-    ethnicity = models.CharField(max_length=30, choices=ETHNICITY_CHOICES)
-    school_level = models.CharField(max_length=40, choices=SCHOOL_LEVEL_CHOICES)
+    description = models.TextField(max_length=999, verbose_name='Descrição')
+    history = models.TextField(max_length=999, verbose_name='História')
+    sexual_orientation = models.CharField(max_length=30, verbose_name='Orientação sexual')
+    breed = models.CharField(max_length=30, choices=BREED_CHOICES, verbose_name='Raça')
+    ethnicity = models.CharField(max_length=30, choices=ETHNICITY_CHOICES, verbose_name='Etnia')
+    school_level = models.CharField(max_length=40, choices=SCHOOL_LEVEL_CHOICES, verbose_name='Níveis de escolaridade')
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
@@ -104,20 +109,20 @@ class About(models.Model):
 
 class Homeless (models.Model):
     
-    frist_name = models.CharField(max_length=30)
-    second_name = models.CharField(max_length=30)
-    nickname = models.CharField(max_length=30)
-    birth_date = models.DateField()
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    frist_name = models.CharField(max_length=30, verbose_name='Primeiro nome')
+    second_name = models.CharField(max_length=30, verbose_name='Segundo nome')
+    nickname = models.CharField(max_length=30, verbose_name='Apelido')
+    birth_date = models.DateField(verbose_name='Data de nascimento')
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, verbose_name='Gênero')
     cpf = models.CharField(max_length=14, blank=True, verbose_name='CPF', unique=True)
     rg = models.CharField(max_length=13, blank=True, verbose_name='RG', unique=True)
-    issuing_body = models.CharField(max_length=12, blank=True)
-    height = models.DecimalField(decimal_places=3, max_digits=8)
-    weight = models.DecimalField(decimal_places=3, max_digits=8)
-    blood_type = models.CharField(max_length=4, choices=BLOOD_TYPE_CHOICES)
+    issuing_body = models.CharField(max_length=12, blank=True, verbose_name='Órgão expedidor')
+    height = models.DecimalField(decimal_places=3, max_digits=8, verbose_name='Altura')
+    weight = models.DecimalField(decimal_places=3, max_digits=8, verbose_name='Peso')
+    blood_type = models.CharField(max_length=4, choices=BLOOD_TYPE_CHOICES, verbose_name='Tipo sanguíneo')
     registration_date = models.DateField(auto_now = False, auto_now_add=True)
-    nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT) #ForeignKey
-    about = models.OneToOneField('About', on_delete=models.PROTECT) #ForeignKey
+    nationality = models.ForeignKey('Nationality', on_delete=models.PROTECT, verbose_name='Nacionalidade') #ForeignKey
+    about = models.OneToOneField('About', on_delete=models.PROTECT, verbose_name='História/Sobre') #ForeignKey
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
@@ -129,9 +134,9 @@ class Homeless (models.Model):
 
 
 class Addiction(models.Model):
-    name_addiction = models.CharField(max_length=200)
-    type_addiction = models.CharField(max_length=200)
-    homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+    name_addiction = models.CharField(max_length=200, verbose_name='Nome do vício')
+    type_addiction = models.CharField(max_length=200, verbose_name='Tipo do vício')
+    homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT, verbose_name='Sem-teto')
     user = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
@@ -141,9 +146,9 @@ class Addiction(models.Model):
         return '{} of type {} of homeless ({})' .format(self.name_addiction, self.type_addiction, self.homeless.nickname)
 
 class Disease(models.Model):
-      name_disease = models.CharField(max_length=90)
-      type_disease = models.CharField(max_length=90)
-      homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT)
+      name_disease = models.CharField(max_length=90, verbose_name='Nome da doença')
+      type_disease = models.CharField(max_length=90, verbose_name='Tipo da doença')
+      homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT, verbose_name='Sem-teto')
       user = models.ForeignKey(User, on_delete=models.PROTECT)
 
       class Meta:

@@ -42,7 +42,7 @@ class AboutCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     group_required = [u"admins", u"user"]
     model = About
-    fields = '__all__'
+    fields = ['description','history','sexual_orientation','breed','ethnicity','school_level']
     template_name = 'register/form.html'
     success_url = reverse_lazy('list-about')
     def get_context_data(self, **kwargs):
