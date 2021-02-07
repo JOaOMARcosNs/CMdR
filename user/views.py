@@ -1,12 +1,16 @@
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from django.contrib.auth.models import User, Group
+
+from django.contrib.auth.forms import UserCreationForm
 
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import UserForm
+from django.contrib.auth.forms import UserChangeForm
+
+from .forms import UserForm, UserUpdateForm
 
 from django.urls import reverse_lazy
 
@@ -29,6 +33,15 @@ class UserCreate(CreateView):
 
         return url
 
+class UserEditView(UpdateView):
+	form_class = UserUpdateForm
+	template_name = 'user/user-edit.html'
+	success_url = reverse_lazy('home')
+    
+	def get_object(self):
+		return self.request.user
+
+
 class MyPasswordChangeView(PasswordChangeView):
     template_name = "user/password_change.html"
     success_url = reverse_lazy('password-chage-done')
@@ -46,7 +59,7 @@ class MyPasswordChangeDoneView(PasswordChangeDoneView):
     template_name = "user/password_reset_done.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = "Senha Alterada com sucesso"
+        context['title'] = "Senha Alterada com sucesso!"
         context['button'] = "Voltar"
         
 

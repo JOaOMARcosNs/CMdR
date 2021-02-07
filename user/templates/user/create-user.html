@@ -45,7 +45,7 @@
                 Usuário
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><a href="#"><button class="dropdown-item" type="button">Meus dados</button></a></li>
+                <li><a href="{% url 'edit-profile'%}"><button class="dropdown-item" type="button">Meus dados</button></a></li>
                 <li><a href="{% url 'password-chage'%}"><button class="dropdown-item" type="button">Muda senha</button></a></li>
                 <li><a href="{% url 'logout'%}"><button class="dropdown-item" type="button">Sair</button></a></li>
               </ul>
