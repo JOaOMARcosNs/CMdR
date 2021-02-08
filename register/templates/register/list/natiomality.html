@@ -17,35 +17,83 @@
 <a href="{% url 'register-nationality'%}"><button class="btn btn-primary">Adicionar</button></a>
 </div>
 <div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>Cidade</th>
-            <th>Estado</th>
-            <th>Opição</th>
-        </tr>
+    <table class="table table-striped" id="table-list">
+        <thead>
 
-        {% for nationality in object_list  %}
-        <tr>
+            <tr>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Opição</th>
+            </tr>
+            
+        </thead>
 
-            <td>
-                {{ nationality.city }}
-            </td>
-            <td>
-                {{ nationality.state }}
-            </td>
-            <td>
-                <a href="{% url 'edit-nationality' nationality.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
-                <a href="{% url 'delete-nationality' nationality.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
-            </td>
-        </tr>
-        {% empty %}
+        <tbody>
 
-        <tr>
+            {% for nationality in object_list  %}
+            <tr>
+                
+                <td>
+                    {{ nationality.city }}
+                </td>
+                <td>
+                    {{ nationality.state }}
+                </td>
+                <td>
+                    <a href="{% url 'edit-nationality' nationality.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
+                    <a href="{% url 'delete-nationality' nationality.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
+                </td>
+            </tr>
+            {% empty %}
+            
+            <tr>
             <td colspan="3">Sem registro</td>
         </tr>
-
+        
         {% endfor %}
-
+    </tbody>
+        
     </table>
 </div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+<script src="{%static 'js/jquery-3.5.1.min.js'%}"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#table-list").DataTable({
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength": 50,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registos",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });
+    })
+</script>
 {% endblock %}
