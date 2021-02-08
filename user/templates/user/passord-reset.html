@@ -54,19 +54,18 @@
     </header>
 
     <main class="container">
-        <h1>Mudar meus dados</h1>
-        <p>Peencha todos os campors obrigatorios!</p>
+        <h1>Recuperar senha</h1>
+        <p>Esqueceu sua senha? Forneça seu endereço de email abaixo, e nos te enviaremos um email com instruções para configurar uma nova.</p>
         <div>
             <form action="" method="POST">
         
                 {% csrf_token %}
         
                 {{ form|crispy}}
-                <p>Para alterar a sua senha <a href="{% url 'password-chage'%}">clique aqui</a></p>
                 <br>
         
                 <button type="submit" class="btn btn-success">
-                    Salvar
+                    Mudar senhar
                 </button>
                 
                 <button type="submit" class="btn  btn-secondary" onclick="window.history.go(-1); return false;">
