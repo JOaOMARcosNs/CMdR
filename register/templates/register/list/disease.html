@@ -9,8 +9,8 @@
 {% endblock %}
 {% block content %}
     <div class="pb-2">
-        <a href="{% url 'register-disease'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt=""> Adicionar</button></a>
-        <a href="{% url 'export-excel-disease'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt=""> Exportar tabela em XLS</button></a>
+        <a href="{% url 'register-disease'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt="Adicionar" title="Adicionar"> Adicionar</button></a>
+        <a href="{% url 'export-excel-disease'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt="Exportar em xls" title="Exportar em xls"> Exportar tabela em XLS</button></a>
     </div>
 
     <div class="table-responsive">
@@ -34,8 +34,8 @@
                     <td> {{disease.type_disease}} </td>
                     <td> {{disease.homeless}} </td>
                     <td>
-                        <a href="{% url 'edit-disease' disease.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
-                        <a href="{% url 'delete-disease' disease.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
+                        <a href="{% url 'edit-disease' disease.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="Editar" title="Editar">Editar</button></a>
+                        <a href="{% url 'delete-disease' disease.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="Deletar" title="Deletar">Deletar</button></a>
                     </td>
                 </tr>
                 

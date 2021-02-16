@@ -9,8 +9,8 @@
 
 {% block content %}
 <div class="pb-2">
-    <a href="{% url 'register-homeless'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt=""> Adicionar</button></a>
-    <a href="{% url 'export-excel-homeless'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt=""> Exportar tabela em XLS</button></a>
+    <a href="{% url 'register-homeless'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt="Adicionar" title="Adicionar"> Adicionar</button></a>
+    <a href="{% url 'export-excel-homeless'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt="Exportar em xls" title="Exportar em xls"> Exportar tabela em XLS</button></a>
 </div>
 <div class="table-responsive table-responsive-sm">
     <table class="table table-striped table-sm" id="table-list">
@@ -56,8 +56,8 @@
             <td> {{ homeless.about }} </td>
             <td> {{ homeless.registration_date }} </td>
             <td>
-                <a href="{% url 'edit-homeless' homeless.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="" title="Editar">Editar</button></a>
-                <a href="{% url 'delete-homeless' homeless.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="" title="Deletar">Deletar</button></a>
+                <a href="{% url 'edit-homeless' homeless.pk %}"><button class="btn btn-warning btn-sm"><img src="/static/img/edit-3.svg" alt="Editar" title="Editar">Editar</button></a>
+                <a href="{% url 'delete-homeless' homeless.pk %}"><button class="btn btn-danger btn-sm" style="color: #000"><img src="/static/img/trash.svg" alt="Deletar" title="Deletar">Deletar</button></a>
             </td>
             
         </tr>
