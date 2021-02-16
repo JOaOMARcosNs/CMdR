@@ -9,7 +9,8 @@
 
 {% block content %}
 <div class="pb-2">
-    <a href="{% url 'register-homeless'%}"><button class="btn btn-primary">Adicionar</button></a>
+    <a href="{% url 'register-homeless'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt=""> Adicionar</button></a>
+    <a href="{% url 'export-excel-homeless'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt=""> Exportar tabela em XLS</button></a>
 </div>
 <div class="table-responsive table-responsive-sm">
     <table class="table table-striped table-sm" id="table-list">

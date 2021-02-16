@@ -2,6 +2,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormView
 
+import xlwt
+from django.http import HttpResponse
+
 from .models import Nationality, About, Homeless, Addiction, Disease
 from .forms import HomelessForm
 
@@ -303,3 +306,173 @@ class DiseaseList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     group_required = [u"admins", u"user"]
     model = Disease
     template_name = 'register/list/disease.html'
+
+######################################################### export xls Nationality #########################################################
+
+# from .models import Nationality, About, Homeless, Addiction, Disease
+
+def export_nationality_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="nacionalidade.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Nationality Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Cidade', 'Estado']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Nationality.objects.all().values_list('city', 'state')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+
+######################################################### export xls About #########################################################
+
+def export_about_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="descrição-dos-sem-tetos.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('About Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Descrição', 'História','Orientação sexual','Raça','Etnia','Níveis de escolaridade']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = About.objects.all().values_list('description', 'history','sexual_orientation','breed','ethnicity','school_level')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+
+######################################################### export xls Homeless #########################################################
+
+def export_homeless_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Sem-teto.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Homeless Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Primeiro nome','Segundo nome','Apelido','Data de nascimento','Gênero','CPF','RG','Órgão expedidor','Altura','Peso','Tipo sanguíneo','Nacionalidade','História/Sobre']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Homeless.objects.all().values_list('frist_name','second_name','nickname','birth_date','gender','cpf','rg','issuing_body','height','weight','blood_type','nationality','about')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+
+######################################################### export xls Addiction #########################################################
+
+def export_addiction_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Vícios.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Addiction Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Nome do vício','Tipo do vício','Sem-teto']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Addiction.objects.all().values_list('name_addiction','type_addiction','homeless')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response
+######################################################### export xls Disease #########################################################
+# name_disease = models.CharField(max_length=90, verbose_name='Nome da doença')
+#       type_disease = models.CharField(max_length=90, verbose_name='Tipo da doença')
+#       homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT, verbose_name='Sem-teto')
+#       user = models.ForeignKey(User, on_delete=models.PROTECT)
+
+def export_disease_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="Doenças.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Disease Data') # this will make a sheet named Users Data
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Nome da doença','Tipo da doença','Sem-teto']
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+
+    rows = Disease.objects.all().values_list('name_disease','type_disease','homeless')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
+
+    return response

@@ -3,6 +3,7 @@ from .views import NationalityCreate, AboutCreate, HomelessCreate, AddictionCrea
 from .views import NationalityUpdate, AboutUpdate, HomelessUpdate, AddictionUpdate, DiseaseUpdate
 from .views import NationalityDelete, AboutDelete, HomelessDelete, AddictionDelete, DiseaseDelete
 from .views import NationalityList, AboutList, HomelessList, AddictionList, DiseaseList
+from .views import export_nationality_xls, export_about_xls, export_homeless_xls, export_addiction_xls, export_disease_xls
 
 
 
@@ -34,4 +35,13 @@ urlpatterns = [
     path('list/homeless/', HomelessList.as_view(), name='list-homeless'),
     path('list/addiction/', AddictionList.as_view(), name='list-addiction'),
     path('list/disease/', DiseaseList.as_view(), name='list-disease'),
+
+######################################################### export xls url #########################################################
+    path('list/nationality/export-xls/', export_nationality_xls, name='export-excel-nationality'),
+    path('list/about/export-xls/', export_about_xls, name='export-excel-about'),
+    path('list/homeless/export-xls/', export_homeless_xls, name='export-excel-homeless'),
+    path('list/addiction/export-xls/', export_addiction_xls, name='export-excel-addiction'),
+    path('list/disease/export-xls/', export_disease_xls, name='export-excel-disease')
+
+
 ]

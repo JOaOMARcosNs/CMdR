@@ -12,7 +12,8 @@
 <div class="table-responsive">
 
     <div class="pb-2">
-        <a href="{% url 'register-addiction'%}"><button class="btn btn-primary">Adicionar</button></a>
+        <a href="{% url 'register-addiction'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt=""> Adicionar</button></a>
+        <a href="{% url 'export-excel-addiction'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt=""> Exportar tabela em XLS</button></a>
     </div>
 
     <table class="table table-striped" id="table-list">

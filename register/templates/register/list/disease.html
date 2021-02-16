@@ -9,7 +9,8 @@
 {% endblock %}
 {% block content %}
     <div class="pb-2">
-        <a href="{% url 'register-disease'%}"><button class="btn btn-primary">Adicionar</button></a>
+        <a href="{% url 'register-disease'%}"><button class="btn btn-primary"><img src="/static/img/plus.svg" alt=""> Adicionar</button></a>
+        <a href="{% url 'export-excel-disease'%}"><button class="btn btn-success"><img src="/static/img/file-text.svg" alt=""> Exportar tabela em XLS</button></a>
     </div>
 
     <div class="table-responsive">
