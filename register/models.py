@@ -92,8 +92,8 @@ class Nationality(models.Model):
 
 
 class About(models.Model):
-    description = models.TextField(max_length=999, verbose_name='Descrição')
-    history = models.TextField(max_length=999, verbose_name='História')
+    description = models.CharField(max_length=999, verbose_name='Descrição')
+    history = models.CharField(max_length=999, verbose_name='História')
     sexual_orientation = models.CharField(max_length=30, verbose_name='Orientação sexual')
     breed = models.CharField(max_length=30, choices=BREED_CHOICES, verbose_name='Raça')
     ethnicity = models.CharField(max_length=30, choices=ETHNICITY_CHOICES, verbose_name='Etnia')

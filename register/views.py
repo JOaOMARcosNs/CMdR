@@ -441,11 +441,6 @@ def export_addiction_xls(request):
 
     return response
 ######################################################### export xls Disease #########################################################
-# name_disease = models.CharField(max_length=90, verbose_name='Nome da doença')
-#       type_disease = models.CharField(max_length=90, verbose_name='Tipo da doença')
-#       homeless = models.ForeignKey('Homeless', on_delete=models.PROTECT, verbose_name='Sem-teto')
-#       user = models.ForeignKey(User, on_delete=models.PROTECT)
-
 def export_disease_xls(request):
     response = HttpResponse(content_type='application/ms-excel')
     response['Content-Disposition'] = 'attachment; filename="Doenças.xls"'
